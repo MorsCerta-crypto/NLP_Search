@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container">
+  <div style="width: 30rem" class="img-fluid mx-auto">
+    <img
+      src="https://icon-library.com/images/search-engine-icon/search-engine-icon-24.jpg"
+      alt=""
+      class="img-fluid"
+    />
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">{% include 'components/search.html' %}</div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+
+{% endblock content %}
