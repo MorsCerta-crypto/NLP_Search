@@ -4,7 +4,7 @@ from pkg_resources import parse_requirements
 from sys import platform
 from Utilities.read_config import read_config
 
-CONFIG_FILE_MAC = "/Users/macbook/Documents/KI_Master/NLP/nlp-projekt-modularbeit/nlp-projekt-modularbeit/src/images/searchengine/config.json"
+CONFIG_FILE_MAC = "../searchengine/config.json"
 if platform == "darwin":
     config = read_config(config_file=CONFIG_FILE_MAC)
 else:
@@ -23,14 +23,14 @@ with open(readme_file, "r", encoding="utf-8") as file:
 setuptools.setup(
     name="Searchengine",
     version=config["version"],
-    author="Fabian Beer, Tobias Schafberger, Konrad Schweiger",
-    author_email="f.beer@oth-aw.de, t.schafberger@oth-aw.de, k.schweiger@oth-aw.de",
+    author="",
+    author_email="",
     description="Semantic Searchengine Package",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://git.oth-aw.de/natural-language-processing-ws2122/nlp-projekt-modularbeit/",
+    url="",
     project_urls={
-        "Bug Tracker": "https://git.oth-aw.de/natural-language-processing-ws2122/nlp-projekt-modularbeit/issues",
+        "Bug Tracker": "",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
