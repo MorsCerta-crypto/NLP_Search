@@ -1,0 +1,45 @@
+version: '3.4'
+services:
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    hostname: mongodb
+    ports:
+      - "27018:27017"
+    networks:
+      - backend-network
+    logging:
+      driver: none
+
+  mongodb-seeder:
+    build:
+      context: ./images/database
+    restart: on-failure
+    depends_on:
+      - mongodb
+    networks:
+      - backend-network
+
+  searchengine:
+    build:
+      context: ./images
+      dockerfile: ./searchengine/Dockerfile
+    container_name: searchengine
+    environment:
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+    ports:
+      - "5000:5000"
+    networks:
+      - backend-network
+    depends_on:
+      mongodb-seeder:
+        condition: service_completed_successfully
+      mongodb:
+        condition: service_started
+
+networks:
+  backend-network:
+    name: backend
+    driver: bridge
