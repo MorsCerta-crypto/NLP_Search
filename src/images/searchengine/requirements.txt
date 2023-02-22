@@ -1,0 +1,9 @@
+bs4
+pymongo
+Flask
+requests
+spacy
+gensim
+pandas
+sklearn
+nltk

@@ -1,0 +1,13 @@
+{
+    "version": "0.0.2",
+    "database_file": "D:/Datensaetze/NLP/2019-02-19_oldp_cases.json",
+    "readme_file": "README.md",
+    "requirements_file": "requirements.txt",
+    "parsing_results_file": "results_of_parsing.csv",
+    "templates_folder": "../frontend/templates",
+    "static_folder": "../frontend/static",
+    "abbreviations_file": "SentTokenizer/german_abbreviations.txt",
+    "model_file": "data/model.bin",
+    "embeddings_file": "data/doc2vecmodel.bin",
+    "phrase_model_file": "data/phrase_model.bin"
+}
