@@ -1,0 +1,65 @@
+{% extends "layout.html" %} {% block content %}
+<div class="container-fluid">
+  <div class="row mt-sm-5 mx-sm-5">
+    <div class="col-lg-10 col-xl-8 col-xxl-6">
+      {% include 'components/search.html' %}
+
+      <div id="output-search" class="border-top border-secondary mt-sm-4 pt-4">
+        {% for cont in content['results'] %}
+        <div class="my-2 border border-light p-2 rounded-3">
+          <h4>
+            <a
+              type="button"
+              class="link-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#contentModal"
+              data-id="{{ cont['id'] }}"
+              data-title="{{ cont['sentence'] }}"
+              data-dependency="{{ cont['graph'] }}"
+              onclick="onClickOpenDetailModal(this)"
+              >{{cont['sentence'][:100]}}</a
+            >
+          </h4>
+          <p class="text-break">{{cont['title']}}</p>
+        </div>
+        {% endfor %} {% if not content['results'] %}
+        <div class="alert alert-primary mt-2" role="alert">
+          Keine Ergebnisse gefunden!
+        </div>
+        {% endif %}
+
+        <div
+          class="modal fade"
+          id="contentModal"
+          tabindex="-1"
+          aria-labelledby="contentModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="contentModalLabel">Titel</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="ms-auto mb-1">
+                  <button type="button" class="btn btn-warning" onclick="onClickShowDependency(this)">Dependenzen</button>
+                </div>
+                <div id="dependencyModalBodyT"></div>
+                <div id="contentModalBody"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {% endblock content %}
+  </div>
+</div>
